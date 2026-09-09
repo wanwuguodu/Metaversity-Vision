@@ -8,7 +8,7 @@ Metaversity 的统一 UI 设计规范与交互展示，供 APP 设计、前端�
 
 - [阅读 UI 设计规范](./Metaversity-统一UI设计规范.md)
 - 下载仓库后，使用现代浏览器直接打开 `index.html`，即可查看交互展示。
-- GitHub Pages：尚未上线。组织当前为 GitHub Free，私有仓库发布 Pages 需要组织具备 GitHub Team 或 Enterprise 等支持套餐。
+- [在线查看交互展示](https://wanwuguodu.github.io/Metaversity-Vision/)（GitHub Pages）
 
 也可以在仓库目录运行：
 
@@ -60,11 +60,11 @@ HTML 包含十组示例：色彩、字体、间距与圆角、按钮与图标、
 
 ## GitHub Pages 发布
 
-仓库保持 **Private**。当前套餐限制解除后，在仓库 `Settings → Pages` 中选择 `Deploy from a branch`，分支 `main`，目录 `/(root)`，保存后等待部署完成。
+仓库为 **Public**，通过 GitHub Pages 发布。发布来源为 `Deploy from a branch`，分支 `main`，目录 `/(root)`。推送更新到 `main` 后，GitHub 自动重新部署；可在仓库 `Settings → Pages` 和 `Actions` 中查看状态。
 
-预计默认地址：`https://wanwuguodu.github.io/Metaversity-Vision/`。此地址目前不是已上线链接，以 Pages 设置中实际生成的地址为准。
+站点地址：<https://wanwuguodu.github.io/Metaversity-Vision/>。
 
-私有仓库与站点访问权限是独立设置：支持私有仓库发布的套餐下，Pages 站点通常仍公开可访问。详见 [GitHub Pages 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)。
+个人 GitHub Free 与组织 Free 均支持公开仓库发布 Pages；个人 Pro 和组织 Team 等套餐还支持私有仓库发布。私有仓库与站点访问权限是独立设置，私有仓库发布的 Pages 站点通常仍公开可访问。详见 [GitHub Pages 官方说明](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site)。
 
 ## 参考与素材
 
