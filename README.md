@@ -2,11 +2,12 @@
 
 Metaversity 的统一 UI 设计规范与交互展示，供 APP 设计、前端开发和界面验收共同参照。
 
-**当前版本：v0.1 讨论版。** 配色、字号、圆角等是候选视觉基线，尚未作为最终设计定稿。这里展示的是可复用规则与组件，业务数据均为示例，没有连接学校系统。
+**当前版本：v0.2 讨论版。** 配色、字号、圆角等是候选视觉基线，尚未作为最终设计定稿。这里展示的是可复用规则与组件，业务数据均为示例，没有连接学校系统。
 
 ## 查看效果
 
 - [阅读 UI 设计规范](./Metaversity-统一UI设计规范.md)
+- [清北复交移动服务对标与取舍](./docs/高校校园移动服务视觉对标.md)
 - 下载仓库后，使用现代浏览器直接打开 `index.html`，即可查看交互展示。
 - [在线查看交互展示](https://wanwuguodu.github.io/Metaversity-Vision/)（GitHub Pages）
 
@@ -22,17 +23,17 @@ python -m http.server 8000
 
 - **APP 优先**：底部一级导航为「首页」「个人」。展示网站的侧栏只是规范目录。
 - **内容与入口共存**：容器是功能入口的一种形式；支持图文、轮播、列表与滚动内容，不限定首页的排列方式。
-- **统一视觉语言**：暖白背景、深绿主色、清晰文字层级；颜色按角色使用，语义状态同时配合文字表达。
+- **统一视觉语言**：参考交我办蓝的主色、中性浅灰背景、白色内容卡片与清晰文字层级；颜色按角色使用，语义状态同时配合文字表达。
 - **统一交互反馈**：按钮、表单、导航、弹层和数据状态遵循共同规则。
 
 | 基础规则 | 候选值 |
 | --- | --- |
-| 页面背景 / 内容表面 | `#F7F8F6` / `#FFFFFF` |
-| 主色 / 按下态 | `#1F6655` / `#174F42` |
-| 主文字 / 次要文字 | `#1F2724` / `#5F6B65` |
+| 页面背景 / 内容表面 | `#F5F6F8` / `#FFFFFF` |
+| 主色 / 按下态 | `#016AED` / `#0058C7` |
+| 主文字 / 次要文字 | `#1F2329` / `#606875` |
 | 字号层级 | 28、22、18、16、14、12；iOS 正文参考 17 |
 | 间距档位 | 4、8、12、16、24、32 |
-| 圆角档位 | 8、12、20、28 |
+| 圆角档位 | 6、8、12、20 |
 | 触控目标 | Android 48dp / iOS 44pt |
 | 动效时长 | 操作反馈 160ms / 过渡 260ms；支持减少动态效果 |
 
@@ -51,6 +52,7 @@ HTML 包含十组示例：色彩、字体、间距与圆角、按钮与图标、
 ├── README.md
 ├── Metaversity-统一UI设计规范.md  # 视觉与交互规则
 ├── index.html                  # 独立交互展示，内嵌样式、脚本及图片
+├── docs/高校校园移动服务视觉对标.md # 来源、观察与设计取舍
 └── .nojekyll                    # 作为静态文件发布
 ```
 
@@ -68,4 +70,4 @@ HTML 包含十组示例：色彩、字体、间距与圆角、按钮与图标、
 
 ## 参考与素材
 
-规范文档附有设计参考来源。展示用建筑摄影来自 [Grand Valley State University](https://www.gvsu.edu/pas/gvsu-resources-101.htm) 和 [Syracuse University Libraries](https://library.syracuse.edu/blog/the-libraries-resources-a-staff-and-faculty-benefit/)，仅作设计讨论示例，不代表项目学校；正式产品素材另行提供。第三方图片不因收录于本仓库而获得新的授权。
+v0.2 主色 #016AED 参考[交我办官方界面规范](https://developer.sjtu.edu.cn/form/standard/pageStyle.html)，配套色值及组件尺寸为本项目候选规则；四校对标记录区分了官方 APP、小程序和社区项目。规范文档附有其他设计参考来源。展示用建筑摄影来自 [Grand Valley State University](https://www.gvsu.edu/pas/gvsu-resources-101.htm) 和 [Syracuse University Libraries](https://library.syracuse.edu/blog/the-libraries-resources-a-staff-and-faculty-benefit/)，仅作设计讨论示例，不代表项目学校；正式产品素材另行提供。第三方图片不因收录于本仓库而获得新的授权。
