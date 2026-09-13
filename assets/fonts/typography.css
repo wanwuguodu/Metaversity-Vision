@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Alibaba PuHuiTi';
+  src: url('./AlibabaPuHuiTi-3-55-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Alibaba PuHuiTi';
+  src: url('./AlibabaPuHuiTi-3-65-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  --font-ui:
+    'Alibaba PuHuiTi', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --text-heading: 1.5rem;
+  --leading-heading: calc(32 / 24);
+  --text-section: 1.125rem;
+  --leading-section: calc(26 / 18);
+  --text-body: 1rem;
+  --leading-body: 1.5;
+  --text-secondary: 0.875rem;
+  --leading-secondary: calc(22 / 14);
+  --text-caption: 0.75rem;
+  --leading-caption: 1.5;
+}
