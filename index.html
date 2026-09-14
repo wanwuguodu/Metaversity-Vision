@@ -24,6 +24,54 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}.spinner{border-style:dotted}.entry-card:hover{transform:none}}.reduced-motion *,.reduced-motion *:before,.reduced-motion *:after{transition:none!important;animation:none!important}.reduced-motion{scroll-behavior:auto}
 
 .field input,.field select,.field textarea{font-size:var(--text-body);line-height:var(--leading-body);font-weight:var(--weight-regular)}.required-mark{margin-left:4px;color:var(--error);font-weight:var(--weight-medium)}
+
+html{scrollbar-gutter:stable}
+.demo-filter-toolbar{display:flex;align-items:end;flex-wrap:wrap;gap:8px}
+.demo-filter-toolbar .search-box{flex:1 1 10rem;min-width:0;min-height:44px;gap:8px;padding-inline:12px}
+.demo-filter-toolbar .search-box input{padding:8px 0}
+.demo-filter-toolbar .icon-btn,.demo-filter-toolbar .btn,.filter-demo-overlay .btn,.filter-demo-overlay .icon-btn{min-height:44px;padding:8px 12px}
+.demo-filter-toolbar .icon-btn,.filter-demo-overlay .icon-btn{width:44px;flex-shrink:0}
+.demo-filter-trigger{gap:8px;flex-shrink:0}
+.demo-filter-trigger[aria-expanded="true"]{background:var(--soft);border-color:var(--brand);color:var(--brand)}
+.demo-filter-count{min-width:22px;padding-inline:4px;border-radius:6px;background:var(--soft);color:var(--brand);font-size:var(--text-secondary);line-height:var(--leading-secondary)}
+.filter-demo-overlay{position:fixed;margin:0;max-width:none;width:min(560px,calc(100% - 32px));max-height:80dvh;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.filter-demo-overlay[open]{display:flex;flex-direction:column}
+.filter-demo-overlay::backdrop{background:transparent}
+.demo-filter-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 16px;border-bottom:1px solid var(--line);flex-shrink:0}
+.demo-filter-head h2{font-size:var(--text-section);line-height:var(--leading-section)}
+.demo-filter-scroll{min-height:0;overflow:auto;overscroll-behavior:contain;padding:16px}
+.demo-filter-fields{display:flex;flex-wrap:wrap;align-items:end;gap:12px 16px}
+.demo-filter-fields>.field{flex:1 1 12rem;gap:8px}
+.demo-filter-fields>.field.full{flex-basis:100%}
+.demo-filter-fields .field select{min-height:44px;padding:8px 12px}
+.demo-filter-footer{padding:12px 16px;border-top:1px solid var(--line);flex-shrink:0}
+.demo-filter-footer .btn{width:100%}
+.demo-range-trigger{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--control);border-radius:8px;background:var(--surface);color:var(--text);text-align:left}
+.demo-range-trigger>span{display:grid;min-width:0;gap:2px;overflow-wrap:anywhere}
+.demo-range-caption{font-size:var(--text-secondary);line-height:var(--leading-secondary);color:var(--muted)}
+.demo-range-value{font-weight:var(--weight-regular)}
+.demo-range-dialog{max-width:none;width:min(420px,calc(100% - 32px))}
+.demo-range-body{padding:24px 20px 16px;text-align:center}
+.demo-range-body h2{font-size:var(--text-section);line-height:var(--leading-section);margin-block:8px 16px}
+.demo-range-wheels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px}
+.demo-range-wheel{position:relative;height:240px;overflow:hidden;touch-action:none;user-select:none;cursor:grab;border-radius:8px;outline-offset:2px}
+.demo-range-wheel:before{content:'';position:absolute;top:96px;height:48px;inset-inline:0;background:var(--soft);border-block:1px solid var(--line);pointer-events:none}
+.demo-range-wheel-track{position:absolute;top:0;left:0;right:0;pointer-events:none}
+.demo-range-wheel-item{height:48px;display:grid;place-items:center;color:var(--muted);white-space:nowrap}
+.demo-range-wheel-item[data-distance="0"]{font-weight:var(--weight-medium);color:var(--text)}
+.demo-range-wheel-item[data-distance="2"]{opacity:.45}
+.demo-range-actions{display:grid;gap:8px;padding:0 20px 20px}
+.demo-range-actions>.btn{width:100%}
+.demo-range-actions .row{justify-content:center;gap:8px}
+.demo-range-actions .btn{min-height:44px;padding:8px 12px}
+.demo-range-actions .btn.ghost{font-size:var(--text-secondary);line-height:var(--leading-secondary)}
+@media(max-width:600px){
+ .filter-demo-overlay{inset:auto 0 0!important;width:100%;max-height:85dvh!important;border-radius:20px 20px 0 0}
+ .filter-demo-overlay::backdrop{background:#14223555}
+ .demo-filter-fields>.field{flex-basis:8rem}
+ .demo-filter-footer{padding-bottom:max(12px,env(safe-area-inset-bottom))}
+}
+@media(max-width:360px){.demo-filter-fields>.field{flex-basis:100%}.demo-range-body{padding-inline:16px}.demo-range-wheels{gap:4px}}
 </style>
 </head>
 <body>
@@ -34,12 +82,12 @@
 <aside class="rail" aria-label="规范展示目录">
  <a class="wordmark" href="#main"><span class="mark">M</span><span>Metaversity</span></a><p class="rail-note">DESIGN SYSTEM / 2026</p>
  <nav><a class="active" href="#colors"><span>01</span>配色系统</a><a href="#type"><span>02</span>字体与排版</a><a href="#geometry"><span>03</span>间距与圆角</a><a href="#controls"><span>04</span>按钮与图标</a><a href="#cards"><span>05</span>卡片与列表</a><a href="#forms"><span>06</span>输入与筛选</a><a href="#media"><span>07</span>图片与轮播</a><a href="#navigation"><span>08</span>导航与页面</a><a href="#states"><span>09</span>反馈与状态</a><a href="#overlays"><span>10</span>弹层与动效</a></nav>
- <div class="rail-foot"><span class="pill neutral">v0.3 · 字体已统一</span><span class="small muted">规则统一，内容自由组合。</span><a class="small" href="Metaversity-统一UI设计规范.md">查看设计规范 ↗</a></div>
+ <div class="rail-foot"><span class="pill neutral">v0.4 · 筛选已统一</span><span class="small muted">规则统一，内容自由组合。</span><a class="small" href="Metaversity-统一UI设计规范.md">查看设计规范 ↗</a></div>
 </aside>
 <main class="main" id="main">
  <header class="topbar"><span class="meta">Metaversity <span aria-hidden="true">／</span> 界面设计规范</span><label class="zoom-switch"><input type="checkbox" id="font-zoom">放大文字</label></header>
  <div class="intro"><div><h1>统一的语言，丰富的校园体验。</h1><p>配色、排版与组件的完整展示。点击组件，查看交互效果。</p></div><span class="pill"><svg class="icon xs"><use href="#i-home"/></svg>校园蓝 × 中性灰白</span></div>
- <div class="panel" style="margin-bottom:32px;border-left:3px solid var(--brand)"><strong>v0.3 · 应用与规范统一字体</strong><p class="meta" style="margin-top:8px">主色采用交大公开规范的 #016AED；借鉴北大的服务分组、复旦的搜索与快捷服务表达。白色卡片承载内容，蓝色集中表达操作与选中。阿里巴巴普惠体与文字层级已统一，其余视觉基线继续按规范维护。</p><div class="row" style="margin-top:12px"><a class="meta" href="https://developer.sjtu.edu.cn/form/standard/pageStyle.html" target="_blank" rel="noreferrer">交大官方色值依据 ↗</a><a class="meta" href="https://github.com/wanwuguodu/Metaversity-Vision/blob/main/docs/高校校园移动服务视觉对标.md" target="_blank" rel="noreferrer">查看四校对标与取舍 ↗</a></div></div>
+ <div class="panel" style="margin-bottom:32px;border-left:3px solid var(--brand)"><strong>v0.4 · 核心内容优先，筛选按需展开</strong><p class="meta" style="margin-top:8px">主色采用交大公开规范的 #016AED；借鉴北大的服务分组、复旦的搜索与快捷服务表达。白色卡片承载内容，蓝色集中表达操作与选中。字体与文字层级保持统一。相关列表默认收起条件，点击筛选后浮层展开；起止日期在一个入口中顺序选择，为主要内容保留空间。</p><div class="row" style="margin-top:12px"><a class="meta" href="https://developer.sjtu.edu.cn/form/standard/pageStyle.html" target="_blank" rel="noreferrer">交大官方色值依据 ↗</a><a class="meta" href="https://github.com/wanwuguodu/Metaversity-Vision/blob/main/docs/高校校园移动服务视觉对标.md" target="_blank" rel="noreferrer">查看四校对标与取舍 ↗</a></div></div>
 <div class="sections">
  <section id="colors" aria-labelledby="colors-title"><div class="section-head"><h2 id="colors-title"><span class="section-num">01</span>配色系统</h2><span class="section-tag">COLOR PALETTE</span></div>
   <div class="color-composition"><div class="brand-sample"><div class="brand-top"><span class="eyebrow">PRIMARY / 品牌主色</span><svg class="icon"><use href="#i-home"/></svg></div><div class="sample-name">校园蓝</div><div class="brand-bottom"><span>参考交我办官方主色。</span><span class="mono">#016AED</span></div></div><div class="neutral-palette">
@@ -70,7 +118,16 @@
  </section>
  <section id="forms" aria-labelledby="forms-title"><div class="section-head"><h2 id="forms-title"><span class="section-num">06</span>输入与筛选</h2><span class="section-tag">FORMS & FILTERS</span></div><div class="grid2">
   <div class="panel"><div class="row between" style="margin-bottom:24px"><h3>清晰的填写体验</h3><span class="pill neutral">本地演示</span></div><form id="demo-form" novalidate><div class="form-grid"><div class="field"><label for="form-name">姓名<span class="required-mark" aria-hidden="true">*</span></label><input id="form-name" name="name" autocomplete="off" placeholder="请输入姓名" aria-describedby="name-error" required><span class="field-error" id="name-error" hidden>请填写姓名。</span></div><div class="field"><label for="form-campus">校区</label><select id="form-campus" name="campus"><option>主校区（示例）</option><option>东校区（示例）</option></select></div><div class="field full"><label for="form-note">补充说明</label><textarea id="form-note" name="note" placeholder="填写需要补充的信息，可留空" maxlength="200" aria-describedby="note-count"></textarea><span class="field-hint count" id="note-count">0 / 200</span></div><div class="field full"><label for="form-disabled">系统字段 · 禁用态</label><input id="form-disabled" value="由学校系统提供" disabled></div></div><label class="choice-row"><input type="checkbox" id="demo-agree" required aria-describedby="agree-error"><span>我已了解这是示例表单，不会提交到学校<span class="required-mark" aria-hidden="true">*</span></span></label><p class="field-error" id="agree-error" hidden>请先确认演示说明。</p><div class="row" style="margin-top:16px"><button class="btn" type="submit" id="submit-button">提交示例<svg class="icon sm"><use href="#i-arrow"/></svg></button><button class="btn ghost" type="reset">重置</button></div><div id="form-result" class="alert" role="status" style="--state-bg:var(--success-bg);--state-fg:var(--success);margin-top:16px" hidden><svg class="icon"><use href="#i-circle-check"/></svg><div><strong>示例已提交</strong><p>仅完成本页演示，不代表业务已获批准。</p></div></div></form></div>
-  <div class="stack"><div class="panel"><h3 style="margin-bottom:16px">搜索与分类</h3><label class="sr-only" for="service-search">搜索示例服务</label><div class="search-box"><svg class="icon sm"><use href="#i-search"/></svg><input id="service-search" type="search" placeholder="搜索课表、地图、办事"><button class="icon-btn" id="clear-search" aria-label="清除搜索"><svg class="icon sm"><use href="#i-close"/></svg></button></div><div class="chips" id="filter-chips" style="margin-top:16px" aria-label="示例服务分类"><button class="chip" data-filter="all" aria-pressed="true">全部</button><button class="chip" data-filter="study" aria-pressed="false">学习</button><button class="chip" data-filter="life" aria-pressed="false">生活</button></div><div class="result-list" id="service-results" aria-live="polite"></div></div><div class="panel"><h3>选择控件</h3><div class="rule"></div><label class="choice-row between"><span>显示消息提醒 <span class="small muted">· 演示</span></span><input class="switch-input" id="notify-switch" type="checkbox" role="switch" checked></label><div class="row" style="gap:24px"><label class="choice-row"><input type="radio" name="scope" value="all" checked>全部校区</label><label class="choice-row"><input type="radio" name="scope" value="current">当前校区</label></div><p class="meta" id="choice-status" aria-live="polite">提醒已开启 · 全部校区</p></div></div>
+  <div class="stack"><div class="panel" id="activity-example">
+<h3 style="margin-bottom:16px">活动搜索与筛选</h3>
+<div class="demo-filter-toolbar">
+<label class="sr-only" for="service-search">搜索示例活动</label>
+<div class="search-box"><svg class="icon sm" aria-hidden="true"><use href="#i-search"/></svg><input id="service-search" type="search" placeholder="活动主题"><button class="icon-btn" id="clear-search" aria-label="清除搜索"><svg class="icon sm"><use href="#i-close"/></svg></button></div>
+<button class="btn secondary demo-filter-trigger" id="filter-open" aria-haspopup="dialog" aria-expanded="false" aria-controls="filter-demo"><svg class="icon sm" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16M8 4v6M16 14v6"/></svg><span>筛选</span><span class="demo-filter-count" id="filter-count" hidden></span></button>
+</div>
+<div class="result-list" id="service-results" aria-live="polite"></div>
+<p class="meta" style="margin-top:16px">条件默认收起，列表优先展示。点击筛选体验浮层，日期范围先选开始、再选结束。</p>
+</div><div class="panel"><h3>选择控件</h3><div class="rule"></div><label class="choice-row between"><span>显示消息提醒 <span class="small muted">· 演示</span></span><input class="switch-input" id="notify-switch" type="checkbox" role="switch" checked></label><div class="row" style="gap:24px"><label class="choice-row"><input type="radio" name="scope" value="all" checked>全部校区</label><label class="choice-row"><input type="radio" name="scope" value="current">当前校区</label></div><p class="meta" id="choice-status" aria-live="polite">提醒已开启 · 全部校区</p></div></div>
  </div></section>
  <section id="media" aria-labelledby="media-title"><div class="section-head"><h2 id="media-title"><span class="section-num">07</span>图片与轮播</h2><span class="section-tag">IMAGERY & GALLERY</span></div><div class="media-grid">
   <div class="carousel" aria-roledescription="轮播" aria-label="校园摄影示例"><div class="carousel-viewport" id="carousel-viewport"><div class="carousel-track" id="carousel-track"><article class="slide" aria-label="第 1 张，共 2 张"><img data-image="campus" alt="日暮时分的图书馆建筑"><div class="slide-copy"><span class="small muted">CAMPUS / 01</span><h3>日暮时分的图书馆</h3><p class="meta">横幅 2:1 · 建筑主体保留在视觉中心</p></div></article><article class="slide" aria-label="第 2 张，共 2 张" aria-hidden="true"><img data-image="library" alt="秋日树木环绕的图书馆"><div class="slide-copy"><span class="small muted">CAMPUS / 02</span><h3>沿着树影，走进秋天</h3><p class="meta">同一比例、相同排版，内容自然切换</p></div></article></div></div><div class="carousel-controls"><div class="row"><button class="icon-btn outlined" id="carousel-prev" aria-label="上一张"><svg class="icon sm"><use href="#i-back"/></svg></button><button class="icon-btn outlined" id="carousel-next" aria-label="下一张"><svg class="icon sm"><use href="#i-arrow"/></svg></button></div><div class="dots"><button class="dot-button" data-slide="0" aria-current="true" aria-label="显示第 1 张"></button><button class="dot-button" data-slide="1" aria-current="false" aria-label="显示第 2 张"></button></div><span class="small muted count" id="carousel-count" aria-live="polite">01 / 02</span></div></div>
@@ -90,8 +147,26 @@
  </div><div class="grid2" style="margin-top:24px"><div class="alert" style="--state-bg:var(--warning-bg);--state-fg:var(--warning)"><svg class="icon"><use href="#i-alert"/></svg><div><strong>请检查必填信息</strong><p>问题保留在页面中，修正后可以继续。</p></div></div><div class="alert" style="--state-bg:var(--info-bg);--state-fg:var(--info)"><svg class="icon"><use href="#i-info"/></svg><div><strong>内容正在更新</strong><p>当前展示上次成功读取的信息。</p></div></div></div><div class="status-labels"><span class="meta">状态标签</span><span class="pill neutral">草稿</span><span class="pill info">已提交</span><span class="pill warning">待确认</span><span class="pill success"><svg class="icon xs"><use href="#i-check"/></svg>已完成</span><span class="pill error"><svg class="icon xs"><use href="#i-close"/></svg>未通过</span></div></section>
  <section id="overlays" aria-labelledby="overlays-title"><div class="section-head"><h2 id="overlays-title"><span class="section-num">10</span>弹层与动效</h2><span class="section-tag">LAYERS & MOTION</span></div><div class="grid2"><div class="panel stack"><h3>用合适的层级承载操作</h3><p class="meta">确认、局部详情与轻量反馈，采用不同组件。</p><div class="button-set"><button class="btn secondary" data-open="confirm-dialog">确认弹窗</button><button class="btn secondary" data-open="location-sheet">底部面板</button><button class="btn ghost" data-toast="示例设置已保存。">轻提示</button></div><div class="rule" style="margin:8px 0"></div><p class="small muted">点击遮罩、关闭按钮或按 Esc 退出。弹层开启时，键盘焦点留在弹层内。</p></div><div class="panel stack"><h3>动作有反馈，过渡有节奏</h3><div class="motion-demo"><div class="motion-stage" id="motion-stage"><span class="motion-block"></span></div><button class="btn secondary" id="motion-button">播放过渡</button></div><div class="row between"><span class="mono muted">反馈 160 ms / 过渡 260 ms</span><label class="choice-row"><input class="switch-input" role="switch" type="checkbox" id="reduce-motion">减少动态效果</label></div><p class="small muted">默认尊重系统的减少动态效果设置，也可在此体验简化呈现。</p></div></div></section>
  </div>
- <footer class="footer"><div><strong>Metaversity Design System</strong><p>v0.3 · 字体与表单规则统一 · 2026.09.13</p><p>展示页内的业务内容均为示例，不连接真实学校系统。</p></div><details><summary>素材来源与说明</summary><p>建筑摄影：<a href="https://www.gvsu.edu/pas/gvsu-resources-101.htm" target="_blank" rel="noreferrer">Grand Valley State University</a>、<a href="https://library.syracuse.edu/blog/the-libraries-resources-a-staff-and-faculty-benefit/" target="_blank" rel="noreferrer">Syracuse University Libraries</a>。仅作设计讨论的素材示例，不代表项目学校；正式素材另行提供。</p><p>字体：<a href="https://www.alibabafonts.com/" target="_blank" rel="noreferrer">阿里巴巴普惠体 3.0</a> · <a href="assets/fonts/LICENSE.txt">完整法律声明</a>。</p><p>视频区仅展示封面及播放入口，不包含视频文件。深色模式未定稿，本页按浅色规范展示。</p></details></footer>
+ <footer class="footer"><div><strong>Metaversity Design System</strong><p>v0.4 · 筛选浮层与时间范围统一 · 2026.09.14</p><p>展示页内的业务内容均为示例，不连接真实学校系统。</p></div><details><summary>素材来源与说明</summary><p>建筑摄影：<a href="https://www.gvsu.edu/pas/gvsu-resources-101.htm" target="_blank" rel="noreferrer">Grand Valley State University</a>、<a href="https://library.syracuse.edu/blog/the-libraries-resources-a-staff-and-faculty-benefit/" target="_blank" rel="noreferrer">Syracuse University Libraries</a>。仅作设计讨论的素材示例，不代表项目学校；正式素材另行提供。</p><p>字体：<a href="https://www.alibabafonts.com/" target="_blank" rel="noreferrer">阿里巴巴普惠体 3.0</a> · <a href="assets/fonts/LICENSE.txt">完整法律声明</a>。</p><p>视频区仅展示封面及播放入口，不包含视频文件。深色模式未定稿，本页按浅色规范展示。</p></details></footer>
 </main>
+<dialog id="filter-demo" class="overlay filter-demo-overlay" aria-labelledby="filter-demo-title">
+<div class="demo-filter-head"><h2 id="filter-demo-title">筛选条件</h2><button class="icon-btn" aria-label="关闭筛选" data-close autofocus><svg class="icon"><use href="#i-close"/></svg></button></div>
+<div class="demo-filter-scroll"><div class="demo-filter-fields">
+<div class="field"><label for="activity-type">活动类型</label><select id="activity-type"><option value="">全部类型</option><option value="practice">交流实践</option><option value="volunteer">志愿服务</option><option value="culture">文化讲座</option></select></div>
+<div class="field"><label for="activity-campus">活动校区</label><select id="activity-campus"><option value="">全部校区</option><option value="north">北校区</option><option value="south">南校区</option></select></div>
+<div class="field full"><label id="range-label" for="range-open">活动日期</label><button class="demo-range-trigger" id="range-open" aria-haspopup="dialog" aria-expanded="false" aria-controls="range-demo" aria-labelledby="range-label range-start-caption range-start-value range-end-caption range-end-value"><span><span class="demo-range-caption" id="range-start-caption">开始日期</span><span class="demo-range-value" id="range-start-value">不限</span></span><svg class="icon sm" aria-hidden="true"><use href="#i-arrow"/></svg><span><span class="demo-range-caption" id="range-end-caption">结束日期</span><span class="demo-range-value" id="range-end-value">不限</span></span></button></div>
+<div class="field full"><label for="activity-state">报名状态</label><select id="activity-state"><option value="">全部状态</option><option value="open">报名开放</option><option value="closed">报名未开放或已截止</option></select></div>
+<button class="btn ghost" id="filter-reset">清除条件</button>
+</div></div><div class="demo-filter-footer"><button class="btn" data-close>查看结果</button></div>
+</dialog>
+<dialog id="range-demo" class="overlay demo-range-dialog" aria-labelledby="range-title" aria-describedby="range-description">
+<div class="demo-range-body"><p class="demo-range-caption" id="range-progress" aria-live="polite">1 / 2 · 活动日期</p><h2 id="range-title">选择开始日期</h2><p class="sr-only" id="range-description">滚动、拖动或用方向键选择日期。先选择开始，再选择结束；取消保留原范围。</p><p class="demo-range-caption" id="range-start-preview" hidden></p><div class="demo-range-wheels">
+<div class="demo-range-wheel" tabindex="0" role="spinbutton" aria-label="年" aria-valuemin="2025" aria-valuemax="2028" aria-valuenow="2026" data-part="0" autofocus><div class="demo-range-wheel-track" aria-hidden="true"></div></div>
+<div class="demo-range-wheel" tabindex="0" role="spinbutton" aria-label="月" aria-valuemin="1" aria-valuemax="12" aria-valuenow="9" data-part="1"><div class="demo-range-wheel-track" aria-hidden="true"></div></div>
+<div class="demo-range-wheel" tabindex="0" role="spinbutton" aria-label="日" aria-valuemin="1" aria-valuemax="30" aria-valuenow="14" data-part="2"><div class="demo-range-wheel-track" aria-hidden="true"></div></div>
+</div><p class="field-error" id="range-error" role="alert" hidden></p></div>
+<div class="demo-range-actions"><button class="btn" id="range-next">下一步：选择结束日期</button><div class="row"><button class="btn ghost" id="range-skip">不设开始日期</button><button class="btn ghost" id="range-back" hidden>修改开始日期</button><button class="btn ghost" data-close>取消</button></div><button class="btn ghost" id="range-clear" hidden>清空范围</button></div>
+</dialog>
 <dialog id="confirm-dialog" class="overlay" aria-labelledby="confirm-title"><div class="dialog-inner"><span class="pill error" style="justify-self:start">危险操作示例</span><h2 id="confirm-title">删除这条示例记录？</h2><p class="muted">这是确认弹窗的交互演示，不会删除任何实际数据。</p><div class="dialog-actions"><button class="btn secondary" data-close>保留</button><button class="btn danger" id="confirm-delete">确认删除示例</button></div></div></dialog>
 <dialog id="location-sheet" class="overlay sheet" aria-labelledby="location-title"><div class="sheet-handle"></div><div class="sheet-content"><div class="sheet-head"><h2 id="location-title">地点详情</h2><button class="icon-btn" aria-label="关闭地点详情" data-close><svg class="icon"><use href="#i-close"/></svg></button></div><img data-image="campus" alt="地点详情封面示例" style="aspect-ratio:2/1;border-radius:12px"><div><span class="pill neutral">示例地点</span><h3 style="margin-top:12px">图书馆 · 学习与阅读空间</h3></div><p class="meta">图片、地点说明和关联服务在同一面板中展示。</p><dl class="detail-lines"><div class="detail-line"><dt>开放时间</dt><dd>以学校公告为准</dd></div><div class="detail-line"><dt>地点信息</dt><dd>校区、楼栋与楼层在这里展示</dd></div></dl><button class="btn" id="location-action">查看服务入口<svg class="icon sm"><use href="#i-arrow"/></svg></button></div></dialog>
 <dialog id="service-sheet" class="overlay sheet" aria-labelledby="service-title"><div class="sheet-handle"></div><div class="sheet-content"><div class="sheet-head"><h2 id="service-title">校园办事</h2><button class="icon-btn" aria-label="关闭服务面板" data-close><svg class="icon"><use href="#i-close"/></svg></button></div><p class="meta">入口卡片点击后的局部详情示例。</p><div class="service-row"><div class="service-copy"><strong>校园卡服务</strong><p>挂失、补办与使用说明</p></div><span class="pill info">指南</span></div><div class="service-row"><div class="service-copy"><strong>生活服务咨询</strong><p>办事流程与负责单位</p></div><span class="pill info">指南</span></div><button class="btn" id="service-action">了解办理方式<svg class="icon sm"><use href="#i-arrow"/></svg></button></div></dialog>
@@ -130,10 +205,89 @@
  $('#demo-agree').addEventListener('change',()=>{if($('#demo-agree').checked){$('#agree-error').hidden=true;$('#demo-agree').removeAttribute('aria-invalid');}});
  form.addEventListener('submit',e=>{e.preventDefault();if($('#submit-button').disabled)return;const nameOK=!!$('#form-name').value.trim();const agreeOK=$('#demo-agree').checked;$('#name-error').hidden=nameOK;$('#agree-error').hidden=agreeOK;$('#form-name').setAttribute('aria-invalid',String(!nameOK));$('#demo-agree').setAttribute('aria-invalid',String(!agreeOK));$('#form-result').hidden=true;if(!nameOK||!agreeOK){(!nameOK?$('#form-name'):$('#demo-agree')).focus();return;}const b=$('#submit-button');b.disabled=true;b.setAttribute('aria-busy','true');b.innerHTML='<span class="spinner" aria-hidden="true"></span>提交中';submitTimer=setTimeout(()=>{b.disabled=false;b.removeAttribute('aria-busy');b.innerHTML='提交示例'+icon('arrow','sm');$('#form-result').hidden=false;},900);});
  form.addEventListener('reset',()=>{clearTimeout(submitTimer);['name-error','agree-error','form-result'].forEach(id=>document.getElementById(id).hidden=true);$$('[aria-invalid]',form).forEach(el=>el.removeAttribute('aria-invalid'));$('#submit-button').disabled=false;$('#submit-button').removeAttribute('aria-busy');$('#submit-button').innerHTML='提交示例'+icon('arrow','sm');$('#note-count').textContent='0 / 200';});
- const services=[{name:'课表',desc:'查看本周课程安排',type:'study',icon:'calendar'},{name:'培养计划与修读进度',desc:'课程要求与完成情况',type:'study',icon:'book'},{name:'校区地图与服务',desc:'查地点，找服务',type:'life',icon:'map'},{name:'校园办事',desc:'指南与服务入口',type:'life',icon:'file'}];let filter='all';
- function updateResults(){const term=$('#service-search').value.trim();const found=services.filter(s=>(filter==='all'||s.type===filter)&&(!term||(s.name+s.desc).includes(term)));$('#service-results').innerHTML=found.length?found.map(s=>`<div class="service-row"><div class="service-icon">${icon(s.icon,'sm')}</div><div class="service-copy"><strong>${s.name}</strong><p>${s.desc}</p></div></div>`).join(''):'<div class="empty-search">没有找到匹配的服务<br><span class="small">试试其他关键词或分类</span></div>';}
- $('#service-search').addEventListener('input',updateResults);$('#clear-search').addEventListener('click',()=>{$('#service-search').value='';updateResults();$('#service-search').focus();});
- $$('#filter-chips button').forEach(b=>b.addEventListener('click',()=>{filter=b.dataset.filter;$$('#filter-chips button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));updateResults();}));updateResults();
+
+ const activities=[
+  {name:'校园摄影漫步',desc:'光影摄影社 · 北校区',type:'practice',campus:'north',date:'2026-09-20',state:'open'},
+  {name:'图书整理志愿活动',desc:'春芽志愿队 · 南校区',type:'volunteer',campus:'south',date:'2026-09-25',state:'open'},
+  {name:'星图识读工作坊',desc:'星河天文社 · 北校区',type:'culture',campus:'north',date:'2026-09-29',state:'closed'}
+ ];
+ let selectedRange={from:'',to:''};
+ const dateParts=value=>value.split('-').map(Number);
+ const dateString=parts=>parts.map((n,i)=>String(n).padStart(i?2:4,'0')).join('-');
+ const dateLabel=value=>value?dateParts(value).map((n,i)=>n+['年','月','日'][i]).join(''):'不限';
+ function updateResults(){
+  const term=$('#service-search').value.trim(),type=$('#activity-type').value,campus=$('#activity-campus').value,state=$('#activity-state').value;
+  const found=activities.filter(a=>(!type||a.type===type)&&(!campus||a.campus===campus)&&(!state||a.state===state)&&(!term||(a.name+a.desc).includes(term))&&(!selectedRange.from||a.date>=selectedRange.from)&&(!selectedRange.to||a.date<=selectedRange.to));
+  $('#service-results').innerHTML=found.length?found.map(a=>'<div class="service-row"><div class="service-icon">'+icon('calendar','sm')+'</div><div class="service-copy"><strong>'+a.name+'</strong><p>'+a.desc+'</p><p>'+dateLabel(a.date)+' · '+(a.state==='open'?'报名开放':'报名已截止')+'</p></div></div>').join(''):'<div class="empty-search">没有匹配的活动<br><span class="small">试试其他关键词或清除条件</span></div>';
+  const count=[type,campus,state,selectedRange.from||selectedRange.to].filter(Boolean).length;
+  $('#filter-count').hidden=!count;$('#filter-count').textContent=count;
+  $('#filter-open').setAttribute('aria-label',count?'筛选，已选 '+count+' 项条件':'筛选');
+  $('#range-start-value').textContent=dateLabel(selectedRange.from);$('#range-end-value').textContent=dateLabel(selectedRange.to);
+ }
+ function positionFilters(){
+  const dialog=$('#filter-demo');if(!dialog.open)return;
+  if(matchMedia('(max-width:600px)').matches){dialog.style.removeProperty('left');dialog.style.removeProperty('top');dialog.style.removeProperty('max-height');return;}
+  const trigger=$('#filter-open').getBoundingClientRect(),below=innerHeight-trigger.bottom-24,above=trigger.top-24;
+  const down=below>=Math.min(400,innerHeight*.6)||below>=above;
+  dialog.style.maxHeight=Math.min(innerHeight*.8,Math.max(160,down?below:above))+'px';
+  const box=dialog.getBoundingClientRect();
+  dialog.style.left=Math.max(16,Math.min(trigger.right-box.width,document.documentElement.clientWidth-box.width-16))+'px';
+  dialog.style.top=Math.max(16,Math.min(down?trigger.bottom+8:trigger.top-box.height-8,innerHeight-box.height-16))+'px';
+ }
+ $('#filter-open').addEventListener('click',e=>{openDialog('filter-demo',e.currentTarget);e.currentTarget.setAttribute('aria-expanded','true');positionFilters();});
+ $('#filter-demo').addEventListener('close',()=>$('#filter-open').setAttribute('aria-expanded','false'));
+ window.addEventListener('resize',positionFilters);
+ $('#service-search').addEventListener('input',updateResults);
+ $('#clear-search').addEventListener('click',()=>{$('#service-search').value='';updateResults();$('#service-search').focus();});
+ ['activity-type','activity-campus','activity-state'].forEach(id=>$('#'+id).addEventListener('change',updateResults));
+ $('#filter-reset').addEventListener('click',()=>{['activity-type','activity-campus','activity-state'].forEach(id=>$('#'+id).value='');selectedRange={from:'',to:''};updateResults();});
+ let rangeStep=0,rangeDraft={from:'',to:''},parts=[2026,9,14];
+ const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+ function rangeBounds(index){
+  const floor=rangeStep===1&&rangeDraft.from?dateParts(rangeDraft.from):null;
+  const matches=floor&&parts.slice(0,index).every((n,i)=>n===floor[i]);
+  return [matches?floor[index]:[2025,1,1][index],index===0?2028:index===1?12:new Date(parts[0],parts[1],0).getDate()];
+ }
+ function renderWheels(){
+  $$('.demo-range-wheel').forEach((wheel,index)=>{
+   const [min,max]=rangeBounds(index),value=parts[index],unit=['年','月','日'][index];
+   wheel.setAttribute('aria-valuemin',min);wheel.setAttribute('aria-valuemax',max);wheel.setAttribute('aria-valuenow',value);wheel.setAttribute('aria-valuetext',value+unit);
+   $('.demo-range-wheel-track',wheel).innerHTML=[-2,-1,0,1,2].map(offset=>'<div class="demo-range-wheel-item" data-distance="'+Math.abs(offset)+'">'+(value+offset>=min&&value+offset<=max?value+offset+unit:'&nbsp;')+'</div>').join('');
+  });
+ }
+ function changePart(index,value){
+  const [min,max]=rangeBounds(index);parts[index]=clamp(value,min,max);parts[2]=Math.min(parts[2],new Date(parts[0],parts[1],0).getDate());
+  if(rangeStep===1&&rangeDraft.from&&dateString(parts)<rangeDraft.from)parts=dateParts(rangeDraft.from);
+  $('#range-error').hidden=true;renderWheels();
+ }
+ function renderRangeStep(){
+  const end=rangeStep===1,raw=end?rangeDraft.to:rangeDraft.from;
+  parts=dateParts(raw||'2026-09-14');if(end&&rangeDraft.from&&dateString(parts)<rangeDraft.from)parts=dateParts(rangeDraft.from);
+  $('#range-progress').textContent=(rangeStep+1)+' / 2 · 活动日期';$('#range-title').textContent=end?'选择结束日期':'选择开始日期';
+  $('#range-start-preview').hidden=!end;$('#range-start-preview').textContent='开始日期：'+dateLabel(rangeDraft.from);
+  $('#range-next').textContent=end?'确认范围':'下一步：选择结束日期';$('#range-skip').textContent=end?'不设结束日期':'不设开始日期';$('#range-back').hidden=!end;
+  $('#range-clear').hidden=!(selectedRange.from||selectedRange.to);$('#range-error').hidden=true;renderWheels();
+ }
+ function advanceRange(value){
+  if(rangeStep===0){rangeDraft.from=value;rangeStep=1;renderRangeStep();}
+  else{selectedRange={from:rangeDraft.from,to:value};updateResults();$('#range-demo').close();}
+ }
+ $('#range-open').addEventListener('click',e=>{rangeDraft={...selectedRange};rangeStep=0;renderRangeStep();openDialog('range-demo',e.currentTarget);e.currentTarget.setAttribute('aria-expanded','true');});
+ $('#range-demo').addEventListener('close',()=>$('#range-open').setAttribute('aria-expanded','false'));
+ $('#range-next').addEventListener('click',()=>{const value=dateString(parts);if(rangeStep===1&&rangeDraft.from&&value<rangeDraft.from){$('#range-error').textContent='结束日期不能早于开始日期';$('#range-error').hidden=false;return;}advanceRange(value);});
+ $('#range-skip').addEventListener('click',()=>advanceRange(''));
+ $('#range-back').addEventListener('click',()=>{rangeDraft.to=dateString(parts);rangeStep=0;renderRangeStep();});
+ $('#range-clear').addEventListener('click',()=>{selectedRange={from:'',to:''};updateResults();$('#range-demo').close();});
+ $$('.demo-range-wheel').forEach((wheel,index)=>{
+  wheel.addEventListener('keydown',e=>{const [min,max]=rangeBounds(index);const value={ArrowUp:parts[index]+1,ArrowDown:parts[index]-1,PageUp:parts[index]+5,PageDown:parts[index]-5,Home:min,End:max}[e.key];if(value!==undefined){e.preventDefault();changePart(index,value);}});
+  let distance=0,lastWheel=0,drag=null;
+  wheel.addEventListener('wheel',e=>{e.preventDefault();const dy=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?240:1);distance=(e.timeStamp-lastWheel<180?distance:0)+clamp(dy,-144,144);lastWheel=e.timeStamp;const step=Math.trunc(distance/48);if(step){distance-=step*48;changePart(index,parts[index]+step);}},{passive:false});
+  wheel.addEventListener('pointerdown',e=>{if(!e.isPrimary||e.button!==0)return;wheel.focus({preventScroll:true});wheel.setPointerCapture(e.pointerId);drag={id:e.pointerId,y:e.clientY,value:parts[index],moved:false};});
+  wheel.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;const delta=e.clientY-drag.y;if(Math.abs(delta)>5)drag.moved=true;changePart(index,drag.value-Math.round(delta/48));});
+  wheel.addEventListener('pointerup',e=>{if(!drag||drag.id!==e.pointerId)return;if(!drag.moved){const box=wheel.getBoundingClientRect();changePart(index,parts[index]+Math.round((e.clientY-box.top-box.height/2)/48));}drag=null;wheel.releasePointerCapture(e.pointerId);});
+  wheel.addEventListener('lostpointercapture',()=>{drag=null;});
+ });
+ updateResults();
  function updateChoices(){const scope=$('input[name="scope"]:checked').value;$('#choice-status').textContent=($('#notify-switch').checked?'提醒已开启':'提醒已关闭')+' · '+(scope==='all'?'全部校区':'当前校区');}
  $('#notify-switch').addEventListener('change',updateChoices);$$('input[name="scope"]').forEach(r=>r.addEventListener('change',updateChoices));
  let slideIndex=0;function setSlide(index){slideIndex=(index+2)%2;$('#carousel-track').style.transform=`translateX(-${slideIndex*100}%)`;$$('.slide').forEach((s,i)=>s.setAttribute('aria-hidden',String(i!==slideIndex)));$$('[data-slide]').forEach(b=>b.setAttribute('aria-current',String(Number(b.dataset.slide)===slideIndex)));$('#carousel-count').textContent=`0${slideIndex+1} / 02`;}
