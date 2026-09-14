@@ -156,25 +156,6 @@ button.service-row:hover{background:var(--soft)}
   object-fit: contain;
   pointer-events: none;
 }
-.image-viewer-toolbar {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  margin-bottom: 8px;
-}
-.image-viewer-scale {
-  min-width: 48px;
-  text-align: center;
-  font-size: var(--text-secondary);
-  font-variant-numeric: tabular-nums;
-}
-.image-viewer-toolbar .text-button {
-  margin-left: auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-}
 .image-viewport[data-dragging='true'],
 .map-viewport[data-dragging='true'] {
   cursor: grabbing;
@@ -198,8 +179,7 @@ button.service-row:hover{background:var(--soft)}
   }
 }
 
-.image-viewer-toolbar .icon-btn{width:44px;min-height:44px;padding:8px;font-size:24px}.image-viewer-toolbar .btn{min-height:44px;padding:8px 12px;margin-left:auto;white-space:nowrap}.slide .image-viewer-toolbar{padding:8px 12px 0}.slide .pan-zoom-help{padding:0 12px 8px}.image-transform>img{width:100%;height:100%;object-fit:contain;aspect-ratio:auto!important;pointer-events:none}.image-viewer-toolbar .icon-btn:disabled{color:var(--disabled-ink)}
-</style>
+.slide .pan-zoom-help{padding:0 12px 8px}.image-transform>img{width:100%;height:100%;object-fit:contain;aspect-ratio:auto!important;pointer-events:none}</style>
 </head>
 <body>
 <a class="skip" href="#main">跳到展示内容</a>
@@ -209,12 +189,12 @@ button.service-row:hover{background:var(--soft)}
 <aside class="rail" aria-label="规范展示目录">
  <a class="wordmark" href="#main"><span class="mark">M</span><span>Metaversity</span></a><p class="rail-note">DESIGN SYSTEM / 2026</p>
  <nav><a class="active" href="#colors"><span>01</span>配色系统</a><a href="#type"><span>02</span>字体与排版</a><a href="#geometry"><span>03</span>间距与圆角</a><a href="#controls"><span>04</span>按钮与图标</a><a href="#cards"><span>05</span>卡片与列表</a><a href="#forms"><span>06</span>输入与筛选</a><a href="#media"><span>07</span>图片与轮播</a><a href="#navigation"><span>08</span>导航与页面</a><a href="#states"><span>09</span>反馈与状态</a><a href="#overlays"><span>10</span>弹层与动效</a></nav>
- <div class="rail-foot"><span class="pill neutral">v0.8 · 图片手势</span><span class="small muted">规则统一，内容自由组合。</span><a class="small" href="Metaversity-统一UI设计规范.md">查看设计规范 ↗</a></div>
+ <div class="rail-foot"><span class="pill neutral">v0.9 · 手势操作</span><span class="small muted">规则统一，内容自由组合。</span><a class="small" href="Metaversity-统一UI设计规范.md">查看设计规范 ↗</a></div>
 </aside>
 <main class="main" id="main">
  <header class="topbar"><span class="meta">Metaversity <span aria-hidden="true">／</span> 界面设计规范</span><label class="zoom-switch"><input type="checkbox" id="font-zoom">放大文字</label></header>
  <div class="intro"><div><h1>统一的语言，丰富的校园体验。</h1><p>配色、排版与组件的完整展示。点击组件，查看交互效果。</p></div><span class="pill"><svg class="icon xs"><use href="#i-home"/></svg>校园蓝 × 中性灰白</span></div>
- <div class="panel" style="margin-bottom:32px;border-left:3px solid var(--brand)"><strong>v0.8 · 统一图片与地图手势</strong><p class="meta" style="margin-top:8px">主色采用交大公开规范的 #016AED；借鉴北大的服务分组、复旦的搜索与快捷服务表达。白色卡片承载内容，蓝色集中表达操作与选中。顶部使用紧凑搜索，只查功能入口与功能大分类；学校切换在个人页。上下导航减少留白；手机采用更紧凑的标题、正文、图标和容器尺寸，电脑端保留原有比例。相关列表默认收起条件，点击筛选后浮层展开；起止日期在一个入口中顺序选择，为主要内容保留空间。单一操作入口整框可点；下拉选项统一圆角、字号与勾选反馈。大图统一为手机双指缩放、单指拖动，电脑滚轮缩放、右键拖动。</p><div class="row" style="margin-top:12px"><a class="meta" href="https://developer.sjtu.edu.cn/form/standard/pageStyle.html" target="_blank" rel="noreferrer">交大官方色值依据 ↗</a><a class="meta" href="https://github.com/wanwuguodu/Metaversity-Vision/blob/main/docs/高校校园移动服务视觉对标.md" target="_blank" rel="noreferrer">查看四校对标与取舍 ↗</a></div></div>
+ <div class="panel" style="margin-bottom:32px;border-left:3px solid var(--brand)"><strong>v0.9 · 手势操作，无缩放按钮</strong><p class="meta" style="margin-top:8px">主色采用交大公开规范的 #016AED；借鉴北大的服务分组、复旦的搜索与快捷服务表达。白色卡片承载内容，蓝色集中表达操作与选中。顶部使用紧凑搜索，只查功能入口与功能大分类；学校切换在个人页。上下导航减少留白；手机采用更紧凑的标题、正文、图标和容器尺寸，电脑端保留原有比例。相关列表默认收起条件，点击筛选后浮层展开；起止日期在一个入口中顺序选择，为主要内容保留空间。单一操作入口整框可点；下拉选项统一圆角、字号与勾选反馈。大图统一为手机双指缩放、单指拖动，电脑滚轮缩放、右键拖动；不显示放大、缩小、重置按钮或缩放工具条。</p><div class="row" style="margin-top:12px"><a class="meta" href="https://developer.sjtu.edu.cn/form/standard/pageStyle.html" target="_blank" rel="noreferrer">交大官方色值依据 ↗</a><a class="meta" href="https://github.com/wanwuguodu/Metaversity-Vision/blob/main/docs/高校校园移动服务视觉对标.md" target="_blank" rel="noreferrer">查看四校对标与取舍 ↗</a></div></div>
 <div class="sections">
  <section id="colors" aria-labelledby="colors-title"><div class="section-head"><h2 id="colors-title"><span class="section-num">01</span>配色系统</h2><span class="section-tag">COLOR PALETTE</span></div>
   <div class="color-composition"><div class="brand-sample"><div class="brand-top"><span class="eyebrow">PRIMARY / 品牌主色</span><svg class="icon"><use href="#i-home"/></svg></div><div class="sample-name">校园蓝</div><div class="brand-bottom"><span>参考交我办官方主色。</span><span class="mono">#016AED</span></div></div><div class="neutral-palette">
@@ -274,7 +254,7 @@ button.service-row:hover{background:var(--soft)}
  </div><div class="grid2" style="margin-top:24px"><div class="alert" style="--state-bg:var(--warning-bg);--state-fg:var(--warning)"><svg class="icon"><use href="#i-alert"/></svg><div><strong>请检查必填信息</strong><p>问题保留在页面中，修正后可以继续。</p></div></div><div class="alert" style="--state-bg:var(--info-bg);--state-fg:var(--info)"><svg class="icon"><use href="#i-info"/></svg><div><strong>内容正在更新</strong><p>当前展示上次成功读取的信息。</p></div></div></div><div class="status-labels"><span class="meta">状态标签</span><span class="pill neutral">草稿</span><span class="pill info">已提交</span><span class="pill warning">待确认</span><span class="pill success"><svg class="icon xs"><use href="#i-check"/></svg>已完成</span><span class="pill error"><svg class="icon xs"><use href="#i-close"/></svg>未通过</span></div></section>
  <section id="overlays" aria-labelledby="overlays-title"><div class="section-head"><h2 id="overlays-title"><span class="section-num">10</span>弹层与动效</h2><span class="section-tag">LAYERS & MOTION</span></div><div class="grid2"><div class="panel stack"><h3>用合适的层级承载操作</h3><p class="meta">确认、局部详情与轻量反馈，采用不同组件。</p><div class="button-set"><button class="btn secondary" data-open="confirm-dialog">确认弹窗</button><button class="btn secondary" data-open="location-sheet">底部面板</button><button class="btn ghost" data-toast="示例设置已保存。">轻提示</button></div><div class="rule" style="margin:8px 0"></div><p class="small muted">点击遮罩、关闭按钮或按 Esc 退出。弹层开启时，键盘焦点留在弹层内。</p></div><div class="panel stack"><h3>动作有反馈，过渡有节奏</h3><div class="motion-demo"><div class="motion-stage" id="motion-stage"><span class="motion-block"></span></div><button class="btn secondary" id="motion-button">播放过渡</button></div><div class="row between"><span class="mono muted">反馈 160 ms / 过渡 260 ms</span><label class="choice-row"><input class="switch-input" role="switch" type="checkbox" id="reduce-motion">减少动态效果</label></div><p class="small muted">默认尊重系统的减少动态效果设置，也可在此体验简化呈现。</p></div></div></section>
  </div>
- <footer class="footer"><div><strong>Metaversity Design System</strong><p>v0.8 · 统一图片与地图手势 · 2026.09.14</p><p>展示页内的业务内容均为示例，不连接真实学校系统。</p></div><details><summary>素材来源与说明</summary><p>建筑摄影：<a href="https://www.gvsu.edu/pas/gvsu-resources-101.htm" target="_blank" rel="noreferrer">Grand Valley State University</a>、<a href="https://library.syracuse.edu/blog/the-libraries-resources-a-staff-and-faculty-benefit/" target="_blank" rel="noreferrer">Syracuse University Libraries</a>。仅作设计讨论的素材示例，不代表项目学校；正式素材另行提供。</p><p>字体：<a href="https://www.alibabafonts.com/" target="_blank" rel="noreferrer">阿里巴巴普惠体 3.0</a> · <a href="assets/fonts/LICENSE.txt">完整法律声明</a>。</p><p>视频区仅展示封面及播放入口，不包含视频文件。深色模式未定稿，本页按浅色规范展示。</p></details></footer>
+ <footer class="footer"><div><strong>Metaversity Design System</strong><p>v0.9 · 手势操作，无缩放按钮 · 2026.09.14</p><p>展示页内的业务内容均为示例，不连接真实学校系统。</p></div><details><summary>素材来源与说明</summary><p>建筑摄影：<a href="https://www.gvsu.edu/pas/gvsu-resources-101.htm" target="_blank" rel="noreferrer">Grand Valley State University</a>、<a href="https://library.syracuse.edu/blog/the-libraries-resources-a-staff-and-faculty-benefit/" target="_blank" rel="noreferrer">Syracuse University Libraries</a>。仅作设计讨论的素材示例，不代表项目学校；正式素材另行提供。</p><p>字体：<a href="https://www.alibabafonts.com/" target="_blank" rel="noreferrer">阿里巴巴普惠体 3.0</a> · <a href="assets/fonts/LICENSE.txt">完整法律声明</a>。</p><p>视频区仅展示封面及播放入口，不包含视频文件。深色模式未定稿，本页按浅色规范展示。</p></details></footer>
 </main>
 <dialog id="filter-demo" class="overlay filter-demo-overlay" aria-labelledby="filter-demo-title">
 <div class="demo-filter-head"><h2 id="filter-demo-title">筛选条件</h2><button class="icon-btn" aria-label="关闭筛选" data-close autofocus><svg class="icon"><use href="#i-close"/></svg></button></div>
@@ -604,21 +584,19 @@ function bindPanZoom(element, actions) {
 
 document.querySelectorAll('.slide > img, #gallery-dialog .sheet-content > img').forEach((img, index) => {
  const viewer = document.createElement('div'); viewer.className = 'image-viewer';
- viewer.innerHTML = '<div class="image-viewer-toolbar"><button type="button" class="icon-btn" aria-label="缩小图片">−</button><span class="image-viewer-scale">100%</span><button type="button" class="icon-btn" aria-label="放大图片">+</button><button type="button" class="btn ghost">适配图片</button></div><section class="image-viewport" tabindex="0"><div class="image-transform"></div></section><p class="pan-zoom-help"><span class="pan-zoom-touch">双指缩放，单指拖动</span><span class="pan-zoom-mouse">滚轮缩放，按住右键拖动</span><span class="sr-only">；键盘加减键缩放，方向键移动，Home 适配图片。</span></p>';
+ viewer.innerHTML = '<section class="image-viewport" tabindex="0"><div class="image-transform"></div></section><p class="pan-zoom-help"><span class="pan-zoom-touch">双指缩放，单指拖动</span><span class="pan-zoom-mouse">滚轮缩放，按住右键拖动</span><span class="sr-only">；键盘加减键缩放，方向键移动，Home 适配图片。</span></p>';
  img.before(viewer); const viewport = viewer.querySelector('.image-viewport'), content = viewer.querySelector('.image-transform'); content.append(img);
  const help = viewer.querySelector('.pan-zoom-help'); help.id = 'image-help-' + index; viewport.setAttribute('aria-describedby', help.id); viewport.setAttribute('aria-label', img.alt);
- const [minus, plus, resetButton] = viewer.querySelectorAll('button'); const percent = viewer.querySelector('.image-viewer-scale');
  img.draggable = false; let scale = 1, x = 0, y = 0, width = 0, height = 0, frame = 0;
  function render() {
   x = width * scale <= viewport.clientWidth ? (viewport.clientWidth - width * scale) / 2 : Math.max(viewport.clientWidth - width * scale, Math.min(0, x));
   y = height * scale <= viewport.clientHeight ? (viewport.clientHeight - height * scale) / 2 : Math.max(viewport.clientHeight - height * scale, Math.min(0, y));
-  if(frame)return;frame=requestAnimationFrame(()=>{frame=0;content.style.transform='translate('+x+'px,'+y+'px) scale('+scale+')';percent.textContent=Math.round(scale*100)+'%';minus.disabled=scale<=1;plus.disabled=scale>=5;});
+  if(frame)return;frame=requestAnimationFrame(()=>{frame=0;content.style.transform='translate('+x+'px,'+y+'px) scale('+scale+')';});
  }
  function zoom(factor, cx = viewport.clientWidth/2, cy = viewport.clientHeight/2, dx=0, dy=0) {const next=Math.max(1,Math.min(5,scale*factor));x=cx-(cx-dx-x)*next/scale;y=cy-(cy-dy-y)*next/scale;scale=next;render();}
  function reset() {scale=1;x=0;y=0;render();} viewer.resetImage=reset;
  function resize() {const ratio=(img.naturalWidth||3)/(img.naturalHeight||2);viewport.style.aspectRatio=ratio;width=Math.min(viewport.clientWidth,viewport.clientHeight*ratio);height=width/ratio;content.style.width=width+'px';content.style.height=height+'px';render();}
  bindPanZoom(viewport,{pan:(dx,dy)=>{x+=dx;y+=dy;render();},zoom,reset});
- minus.addEventListener('click',()=>zoom(.8));plus.addEventListener('click',()=>zoom(1.25));resetButton.addEventListener('click',reset);
  new ResizeObserver(resize).observe(viewport);img.addEventListener('load',resize);resize();
  const dialog=viewer.closest('dialog');if(dialog)dialog.addEventListener('close',reset);
 });
