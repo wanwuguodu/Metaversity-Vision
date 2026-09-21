@@ -342,7 +342,7 @@ body{background:var(--surface)}
  <section id="media" aria-labelledby="media-title"><div class="section-head"><h2 id="media-title"><span class="section-num">07</span>图片与轮播</h2></div><div class="media-grid">
   <div class="carousel" aria-roledescription="轮播" aria-label="校园摄影示例"><div class="carousel-viewport" id="carousel-viewport"><div class="carousel-track" id="carousel-track"><article class="slide" aria-label="第 1 张，共 2 张"><img data-image="campus" alt="日暮时分的图书馆建筑"><div class="slide-copy"><h3>日暮时分的图书馆</h3></div></article><article class="slide" aria-label="第 2 张，共 2 张" aria-hidden="true"><img data-image="library" alt="秋日树木环绕的图书馆"><div class="slide-copy"><h3>秋日树木环绕的图书馆</h3></div></article></div></div><div class="carousel-controls"><div class="row"><button class="icon-btn outlined" id="carousel-prev" aria-label="上一张"><svg class="icon sm"><use href="#i-back"/></svg></button><button class="icon-btn outlined" id="carousel-next" aria-label="下一张"><svg class="icon sm"><use href="#i-arrow"/></svg></button></div><div class="dots"><button class="dot-button" data-slide="0" aria-current="true" aria-label="显示第 1 张"></button><button class="dot-button" data-slide="1" aria-current="false" aria-label="显示第 2 张"></button></div><span class="small muted count" id="carousel-count" aria-live="polite">01 / 02</span></div></div>
   <div class="ratio-titles"><div class="media-ratios"><div class="ratio-example"><img data-image="campus" style="aspect-ratio:4/3" alt="4:3 图文封面比例示例"><span>4:3 · 图文封面</span></div><div class="ratio-example"><img data-image="library" style="aspect-ratio:1" alt="1:1 方图裁切示例"><span>1:1 · 方形图片</span></div></div><div class="video-cover"><img data-image="campus" alt="视频封面示例"><button aria-label="查看视频封面组件说明" id="video-demo"><svg class="icon"><use href="#i-play"/></svg></button><span class="video-label">16:9 · 视频封面示例</span></div><div class="media-fallback" style="aspect-ratio:auto;padding:24px"><svg class="icon"><use href="#i-image"/></svg><span class="type-secondary">图片暂不可用</span></div></div>
- </div><p class="small muted" style="margin-top:16px">图集通过前后按钮切换，默认不自动播放；大图内手机双指缩放、单指拖动，电脑滚轮缩放、右键拖动。摄影仅用于素材比例展示，并非项目学校。</p></section>
+ </div><p class="small muted" style="margin-top:16px">图集通过前后按钮切换，默认不自动播放；大图内手机双指缩放、单指拖动，电脑滚轮缩放、按住滚轮（中键）或右键拖动。摄影仅用于素材比例展示，并非项目学校。</p></section>
  <section id="navigation" aria-labelledby="navigation-title"><div class="section-head"><h2 id="navigation-title"><span class="section-num">08</span>导航与页面</h2></div><div class="nav-composition">
   <div class="phone" aria-label="手机组件组合示例"><div class="phone-status"><span>9:41</span><span class="row" style="gap:8px"><svg class="icon xs"><use href="#i-wifi"/></svg><span>100%</span></span></div><div class="phone-search-header" id="phone-search-header"><search aria-label="手机全局搜索示例"><form class="phone-search-form" id="phone-search-form"><svg class="icon sm" aria-hidden="true"><use href="#i-search"/></svg><input type="search" id="phone-search-input" aria-label="搜索功能与分类" placeholder="搜索功能与分类" maxlength="100" enterkeyhint="search"><button type="submit">搜索</button></form></search></div><div class="phone-body"><div id="phone-home" role="tabpanel" aria-labelledby="nav-home"><div class="phone-heading"><h2>我的校园</h2></div><div class="phone-hero"><img data-image="campus" alt="校园图文组合示例"><div class="phone-hero-copy"><h3>校园图书馆</h3><p>建筑与阅读空间</p></div></div><button class="phone-course" id="open-course"><div class="row"><span class="course-meta">课表</span><svg class="icon sm"><use href="#i-arrow"/></svg></div><div class="course-time">10:00 — 11:40</div><div class="row"><strong>大学英语</strong><span class="course-meta">知行楼 305</span></div></button></div><div id="phone-personal" role="tabpanel" aria-labelledby="nav-personal" hidden><div class="phone-avatar"><svg class="icon"><use href="#i-user"/></svg></div><h2>个人</h2><label class="phone-school">当前学校<select id="phone-school" aria-label="当前学校"><option>知行大学</option><option>明理学院</option></select></label></div><div id="phone-search" hidden><button class="btn ghost" id="phone-search-back"><svg class="icon sm"><use href="#i-back"/></svg>返回</button><output class="meta" id="phone-search-count" style="display:block;margin:12px 0"></output><div id="phone-search-results"></div></div><div id="phone-category" hidden><button class="btn ghost" id="phone-category-back"><svg class="icon sm"><use href="#i-back"/></svg>返回搜索</button><h2 id="phone-category-title" style="margin-top:16px"></h2><p class="meta" id="phone-category-parent"></p></div><div id="phone-detail" class="phone-detail" hidden><button class="btn ghost" id="close-course" style="width:auto;margin:0 0 8px;padding-left:0"><svg class="icon sm"><use href="#i-back"/></svg>返回</button><span class="meta">课程详情</span><h2 style="margin-top:16px">大学英语</h2><dl class="detail-lines" style="margin-top:24px"><div class="detail-line"><dt>时间</dt><dd>10:00 — 11:40</dd></div><div class="detail-line"><dt>地点</dt><dd>知行楼 305</dd></div><div class="detail-line"><dt>教学周</dt><dd>第 2 周 · 周三</dd></div></dl><button class="btn secondary" data-open="location-sheet"><svg class="icon sm"><use href="#i-pin"/></svg>查看地点</button></div></div><nav class="phone-bottom" id="phone-nav" role="tablist" aria-label="APP 一级导航"><button class="nav-item" id="nav-home" role="tab" aria-selected="true" aria-controls="phone-home"><svg class="icon"><use href="#i-home"/></svg><span>首页</span></button><button class="nav-item" id="nav-personal" role="tab" aria-selected="false" aria-controls="phone-personal"><svg class="icon"><use href="#i-user"/></svg><span>个人</span></button></nav></div>
   <div class="navigation-reference"><h3>操作路径</h3><dl class="interaction-notes"><div><dt>搜索入口</dt><dd>搜索「活动」或「图书馆」，查看匹配的功能与分类，再返回原页面。</dd></div><div><dt>进入详情</dt><dd>点击课表摘要打开课程详情；返回后继续浏览首页。</dd></div><div><dt>切换学校</dt><dd>打开「个人」，使用学校选择框切换。一级导航保留「首页」「个人」。</dd></div></dl><p class="reference-note">左侧展示组件组合与搜索跳转路径；首页内容与排列由实际业务决定。</p><h3 class="reference-title">页内切换</h3><div class="segmented" role="tablist" aria-label="课程分段示例"><button role="tab" id="segment-overview" aria-selected="true" aria-controls="segment-panel-overview">课程介绍</button><button role="tab" id="segment-progress" aria-selected="false" aria-controls="segment-panel-progress">修读情况</button></div><div class="tab-content" id="segment-panel-overview" role="tabpanel" aria-labelledby="segment-overview"><strong>大学英语</strong><p class="meta" style="margin-top:8px">通过阅读、听力与课堂交流练习语言应用，课程资料随教学安排更新。</p></div><div class="tab-content" id="segment-panel-progress" role="tabpanel" aria-labelledby="segment-progress" hidden><strong>大学英语 · 在修</strong><p class="meta" style="margin-top:8px">本学期课程，修读结果以教务记录为准。</p></div></div>
@@ -588,7 +588,7 @@ function bindPanZoom(element, actions) {
   }
   function down(event) {
     if (!pointers.size) suppressClick = false;
-    if (event.pointerType === "mouse" && event.button !== 2) return;
+    if (event.pointerType === "mouse" && event.button !== 1 && event.button !== 2) return;
     if (event.pointerType !== "mouse" && event.button !== 0) return;
     if (pointers.size >= 2) return;
     pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
@@ -666,6 +666,9 @@ function bindPanZoom(element, actions) {
     event.preventDefault();
   }
   const prevent = (event) => event.preventDefault();
+  const auxiliaryClick = (event) => {
+    if (event.button === 1) event.preventDefault();
+  };
   element.addEventListener("pointerdown", down);
   element.addEventListener("pointermove", move, { passive: false });
   element.addEventListener("pointerup", end);
@@ -674,6 +677,7 @@ function bindPanZoom(element, actions) {
   element.addEventListener("wheel", wheel, { passive: false });
   element.addEventListener("click", click, true);
   element.addEventListener("contextmenu", prevent);
+  element.addEventListener("auxclick", auxiliaryClick);
   element.addEventListener("dragstart", prevent);
   element.addEventListener("keydown", key);
   window.addEventListener("blur", cancel);
@@ -687,6 +691,7 @@ function bindPanZoom(element, actions) {
     element.removeEventListener("wheel", wheel);
     element.removeEventListener("click", click, true);
     element.removeEventListener("contextmenu", prevent);
+    element.removeEventListener("auxclick", auxiliaryClick);
     element.removeEventListener("dragstart", prevent);
     element.removeEventListener("keydown", key);
     window.removeEventListener("blur", cancel);
@@ -695,7 +700,7 @@ function bindPanZoom(element, actions) {
 
 document.querySelectorAll('.slide > img, #gallery-dialog .sheet-content > img').forEach((img, index) => {
  const viewer = document.createElement('div'); viewer.className = 'image-viewer';
- viewer.innerHTML = '<section class="image-viewport" tabindex="0"><div class="image-transform"></div></section><p class="pan-zoom-help"><span class="pan-zoom-touch">双指缩放，单指拖动</span><span class="pan-zoom-mouse">滚轮缩放，按住右键拖动</span><span class="sr-only">；键盘加减键缩放，方向键移动，Home 适配图片。</span></p>';
+ viewer.innerHTML = '<section class="image-viewport" tabindex="0"><div class="image-transform"></div></section><p class="pan-zoom-help"><span class="pan-zoom-touch">双指缩放，单指拖动</span><span class="pan-zoom-mouse">滚轮缩放，按住滚轮（中键）或右键拖动</span><span class="sr-only">；键盘加减键缩放，方向键移动，Home 适配图片。</span></p>';
  img.before(viewer); const viewport = viewer.querySelector('.image-viewport'), content = viewer.querySelector('.image-transform'); content.append(img);
  const help = viewer.querySelector('.pan-zoom-help'); help.id = 'image-help-' + index; viewport.setAttribute('aria-describedby', help.id); viewport.setAttribute('aria-label', img.alt);
  img.draggable = false; let scale = 1, x = 0, y = 0, width = 0, height = 0, frame = 0;
